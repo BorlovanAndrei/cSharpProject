@@ -41,6 +41,12 @@
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.tbShopId = new System.Windows.Forms.TextBox();
+            this.lvManager = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -117,9 +123,9 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(293, 364);
+            this.button1.Location = new System.Drawing.Point(170, 345);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(191, 23);
+            this.button1.Size = new System.Drawing.Size(191, 43);
             this.button1.TabIndex = 8;
             this.button1.Text = "Add manager";
             this.button1.UseVisualStyleBackColor = false;
@@ -153,11 +159,59 @@
             this.tbShopId.Size = new System.Drawing.Size(199, 22);
             this.tbShopId.TabIndex = 12;
             // 
+            // lvManager
+            // 
+            this.lvManager.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvManager.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.lvManager.FullRowSelect = true;
+            this.lvManager.GridLines = true;
+            this.lvManager.HideSelection = false;
+            this.lvManager.Location = new System.Drawing.Point(465, 113);
+            this.lvManager.Name = "lvManager";
+            this.lvManager.Size = new System.Drawing.Size(481, 378);
+            this.lvManager.TabIndex = 13;
+            this.lvManager.UseCompatibleStateImageBehavior = false;
+            this.lvManager.View = System.Windows.Forms.View.Details;
+            this.lvManager.SelectedIndexChanged += new System.EventHandler(this.lvManager_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "First Name";
+            this.columnHeader1.Width = 88;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Last Name";
+            this.columnHeader2.Width = 89;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "E-mail";
+            this.columnHeader3.Width = 101;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Ph. Number";
+            this.columnHeader4.Width = 105;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Shop Id";
+            this.columnHeader5.Width = 118;
+            // 
             // CreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(958, 553);
+            this.Controls.Add(this.lvManager);
             this.Controls.Add(this.tbShopId);
             this.Controls.Add(this.tbPhone);
             this.Controls.Add(this.tbEmail);
@@ -193,5 +247,11 @@
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.TextBox tbShopId;
+        private System.Windows.Forms.ListView lvManager;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

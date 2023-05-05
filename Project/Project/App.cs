@@ -29,7 +29,9 @@ namespace Project
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            LogIn login = new LogIn();
+            login.MdiParent= this;
+            login.Show();
         }
 
         private void createAccountToolStripMenuItem_Click(object sender, EventArgs e)

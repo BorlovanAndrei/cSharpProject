@@ -22,11 +22,23 @@ namespace Project
             _manager = new List<Manager>();
         }
 
+
+
         public void displayManager()
         {
-
+            lvManager.Items.Clear();
+            foreach(Manager manager in _manager)
+            {
+                var listViewItem = new ListViewItem(manager.firstName);
+                listViewItem.SubItems.Add(manager.lastName);
+                listViewItem.SubItems.Add(manager.email);
+                listViewItem.SubItems.Add(manager.phone);
+                //listViewItem.SubItems.Add($"{manager.phone}");
+                //listViewItem.SubItems.Add(manager.shopId);
+                listViewItem.SubItems.Add($"{manager.shopId}");
+                lvManager.Items.Add(listViewItem);
+            }
         }
-
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,7 +52,13 @@ namespace Project
             
             var manager = new Manager(firstName,lastName, email, phone, shopId);
             _manager.Add(manager);
-            //displayManager();
+            displayManager();
+
+
+        }
+
+        private void lvManager_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
