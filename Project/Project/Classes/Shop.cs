@@ -45,5 +45,11 @@ namespace Project.Classes
             this.phoneNo = phoneNo;
         }
 
+        public Shop(string shopName, string location, string phoneNo)
+        {
+            this.shopName = shopName;
+            this.location = location;
+            this.phoneNo = phoneNo;
+        }
     }
 }

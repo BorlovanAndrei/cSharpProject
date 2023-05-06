@@ -43,6 +43,8 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
+            this.dgvShop = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShop)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -130,7 +132,7 @@
             this.columnHeader3,
             this.columnHeader4});
             this.lvShop.HideSelection = false;
-            this.lvShop.Location = new System.Drawing.Point(507, 138);
+            this.lvShop.Location = new System.Drawing.Point(1023, 35);
             this.lvShop.Name = "lvShop";
             this.lvShop.Size = new System.Drawing.Size(446, 223);
             this.lvShop.TabIndex = 9;
@@ -168,11 +170,23 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dgvShop
+            // 
+            this.dgvShop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvShop.Location = new System.Drawing.Point(454, 154);
+            this.dgvShop.Name = "dgvShop";
+            this.dgvShop.RowHeadersWidth = 51;
+            this.dgvShop.RowTemplate.Height = 24;
+            this.dgvShop.Size = new System.Drawing.Size(424, 385);
+            this.dgvShop.TabIndex = 11;
+            this.dgvShop.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShop_CellContentClick);
+            // 
             // CreateShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 564);
+            this.ClientSize = new System.Drawing.Size(989, 611);
+            this.Controls.Add(this.dgvShop);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lvShop);
             this.Controls.Add(this.tbPhoneNumber);
@@ -184,12 +198,19 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Load += new System.EventHandler(this.CreateShop_Load);
             this.Name = "CreateShop";
             this.Text = "CreateShop";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
+        //private void CreateShop_Load(object sender, System.EventArgs e)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
 
         #endregion
 
@@ -208,5 +229,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvShop;
     }
 }
