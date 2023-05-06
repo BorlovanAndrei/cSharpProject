@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,14 @@ namespace Project.Classes
 
         public List<Department> departments { get; set; }
         public List<Sale> sales { get; set; }
+
+        public Shop(string name, int id, string location, string phone)
+        {
+            this.shopName= name;
+            this.shopId= id;
+            this.location= location;
+            this.phoneNo= phone;
+        }
 
         public Shop()
         {

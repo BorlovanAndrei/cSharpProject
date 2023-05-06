@@ -13,6 +13,13 @@ namespace Project.Classes
         public int noOfEmployees { get; set; }
         public int shopId { get; set; }
 
+        public Department(string departmentName, int departmentId, int shopId)
+        {
+            this.departmentName = departmentName;
+         this.departmentId = departmentId;
+            this.shopId=shopId;
+        }
+
         public Department()
         {
             this.departmentId = -1;

@@ -12,9 +12,17 @@ namespace Project
 {
     public partial class LogIn : Form
     {
+        //private string connectingString = "Data source = Database.db";
+
+
         public LogIn()
         {
             InitializeComponent();
+        }
+
+        private void addParticipant()
+        {
+
         }
 
         private void label1_Click(object sender, EventArgs e)

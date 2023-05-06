@@ -50,5 +50,26 @@ namespace Project
         {
             this.Close();
         }
+
+        private void shopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateShop newShop = new CreateShop();
+            newShop.MdiParent = this;
+            newShop.Show();
+        }
+
+        private void departmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateDepartment newDepartment = new CreateDepartment();
+            newDepartment.MdiParent = this;
+            newDepartment.Show();
+        }
+
+        private void saleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateSale newSale = new CreateSale();
+            newSale.MdiParent = this;
+            newSale.Show();
+        }
     }
 }

@@ -47,6 +47,12 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -119,11 +125,12 @@
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(199, 22);
             this.tbFirstName.TabIndex = 7;
+            this.tbFirstName.TextChanged += new System.EventHandler(this.tbFirstName_TextChanged);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(170, 345);
+            this.button1.Location = new System.Drawing.Point(170, 440);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 43);
             this.button1.TabIndex = 8;
@@ -169,13 +176,15 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4,
-            this.columnHeader5});
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
             this.lvManager.FullRowSelect = true;
             this.lvManager.GridLines = true;
             this.lvManager.HideSelection = false;
             this.lvManager.Location = new System.Drawing.Point(465, 113);
             this.lvManager.Name = "lvManager";
-            this.lvManager.Size = new System.Drawing.Size(481, 378);
+            this.lvManager.Size = new System.Drawing.Size(676, 440);
             this.lvManager.TabIndex = 13;
             this.lvManager.UseCompatibleStateImageBehavior = false;
             this.lvManager.View = System.Windows.Forms.View.Details;
@@ -206,11 +215,57 @@
             this.columnHeader5.Text = "Shop Id";
             this.columnHeader5.Width = 118;
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Username";
+            this.columnHeader6.Width = 90;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Password";
+            this.columnHeader7.Width = 83;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 307);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 16);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Username";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 344);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 16);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Password";
+            // 
+            // tbUsername
+            // 
+            this.tbUsername.Location = new System.Drawing.Point(170, 307);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(199, 22);
+            this.tbUsername.TabIndex = 16;
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(170, 344);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(199, 22);
+            this.tbPassword.TabIndex = 17;
+            // 
             // CreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 553);
+            this.ClientSize = new System.Drawing.Size(1200, 615);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.tbUsername);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.lvManager);
             this.Controls.Add(this.tbShopId);
             this.Controls.Add(this.tbPhone);
@@ -253,5 +308,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.TextBox tbPassword;
     }
 }
