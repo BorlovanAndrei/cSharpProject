@@ -53,6 +53,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -126,6 +129,8 @@
             this.tbFirstName.Size = new System.Drawing.Size(199, 22);
             this.tbFirstName.TabIndex = 7;
             this.tbFirstName.TextChanged += new System.EventHandler(this.tbFirstName_TextChanged);
+            this.tbFirstName.MouseLeave += new System.EventHandler(this.tbFirstName_MouseLeave);
+            this.tbFirstName.MouseHover += new System.EventHandler(this.tbFirstName_MouseHover);
             // 
             // button1
             // 
@@ -137,6 +142,8 @@
             this.button1.Text = "Add manager";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // tbLastName
             // 
@@ -144,6 +151,8 @@
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(199, 22);
             this.tbLastName.TabIndex = 9;
+            this.tbLastName.MouseLeave += new System.EventHandler(this.tbLastName_MouseLeave);
+            this.tbLastName.MouseHover += new System.EventHandler(this.tbLastName_MouseHover);
             // 
             // tbEmail
             // 
@@ -151,6 +160,9 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(199, 22);
             this.tbEmail.TabIndex = 10;
+            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
+            this.tbEmail.MouseLeave += new System.EventHandler(this.tbEmail_MouseLeave);
+            this.tbEmail.MouseHover += new System.EventHandler(this.tbEmail_MouseHover);
             // 
             // tbPhone
             // 
@@ -158,6 +170,8 @@
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(199, 22);
             this.tbPhone.TabIndex = 11;
+            this.tbPhone.MouseLeave += new System.EventHandler(this.tbPhone_MouseLeave);
+            this.tbPhone.MouseHover += new System.EventHandler(this.tbPhone_MouseHover);
             // 
             // tbShopId
             // 
@@ -165,6 +179,8 @@
             this.tbShopId.Name = "tbShopId";
             this.tbShopId.Size = new System.Drawing.Size(199, 22);
             this.tbShopId.TabIndex = 12;
+            this.tbShopId.MouseLeave += new System.EventHandler(this.tbShopId_MouseLeave);
+            this.tbShopId.MouseHover += new System.EventHandler(this.tbShopId_MouseHover);
             // 
             // lvManager
             // 
@@ -249,6 +265,8 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(199, 22);
             this.tbUsername.TabIndex = 16;
+            this.tbUsername.MouseLeave += new System.EventHandler(this.tbUsername_MouseLeave);
+            this.tbUsername.MouseHover += new System.EventHandler(this.tbUsername_MouseHover);
             // 
             // tbPassword
             // 
@@ -256,12 +274,31 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(199, 22);
             this.tbPassword.TabIndex = 17;
+            this.tbPassword.MouseLeave += new System.EventHandler(this.tbPassword_MouseLeave);
+            this.tbPassword.MouseHover += new System.EventHandler(this.tbPassword_MouseHover);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 593);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1200, 22);
+            this.statusStrip1.TabIndex = 18;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 16);
             // 
             // CreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 615);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.label9);
@@ -282,6 +319,8 @@
             this.Controls.Add(this.label1);
             this.Name = "CreateAccount";
             this.Text = "CreateAccount";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,5 +353,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

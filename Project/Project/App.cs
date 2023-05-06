@@ -71,5 +71,10 @@ namespace Project
             newSale.MdiParent = this;
             newSale.Show();
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -112,5 +112,90 @@ namespace Project
         {
 
         }
+
+        private void tbFirstName_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Enter your given name.";
+        }
+
+        private void tbFirstName_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
+
+        private void tbLastName_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Enter your family name.";
+        }
+
+        private void tbLastName_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
+
+        private void tbEmail_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Enter your e-mail.";
+        }
+
+        private void tbEmail_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPhone_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Enter your phone number.";
+        }
+
+        private void tbPhone_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
+
+        private void tbShopId_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Enter the shop id you manage.";
+        }
+
+        private void tbShopId_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
+
+        private void tbUsername_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Enter your username.";
+        }
+
+        private void tbUsername_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
+
+        private void tbPassword_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Enter your password.";
+        }
+
+        private void tbPassword_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "Click to create account.";
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            toolStripStatusLabel1.Text = "";
+        }
     }
 }
