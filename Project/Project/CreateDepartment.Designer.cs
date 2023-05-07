@@ -95,6 +95,7 @@
             this.tbDepartmentName.Name = "tbDepartmentName";
             this.tbDepartmentName.Size = new System.Drawing.Size(207, 22);
             this.tbDepartmentName.TabIndex = 6;
+            this.tbDepartmentName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDepartmentName_KeyDown);
             // 
             // tbDepartmentId
             // 
@@ -102,6 +103,7 @@
             this.tbDepartmentId.Name = "tbDepartmentId";
             this.tbDepartmentId.Size = new System.Drawing.Size(207, 22);
             this.tbDepartmentId.TabIndex = 7;
+            this.tbDepartmentId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDepartmentId_KeyDown);
             // 
             // tbShopIdDep
             // 
@@ -109,6 +111,7 @@
             this.tbShopIdDep.Name = "tbShopIdDep";
             this.tbShopIdDep.Size = new System.Drawing.Size(207, 22);
             this.tbShopIdDep.TabIndex = 8;
+            this.tbShopIdDep.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbShopIdDep_KeyDown);
             // 
             // lvDepartment
             // 
@@ -117,9 +120,9 @@
             this.columnHeader2,
             this.columnHeader3});
             this.lvDepartment.HideSelection = false;
-            this.lvDepartment.Location = new System.Drawing.Point(441, 134);
+            this.lvDepartment.Location = new System.Drawing.Point(447, 136);
             this.lvDepartment.Name = "lvDepartment";
-            this.lvDepartment.Size = new System.Drawing.Size(401, 324);
+            this.lvDepartment.Size = new System.Drawing.Size(442, 324);
             this.lvDepartment.TabIndex = 9;
             this.lvDepartment.UseCompatibleStateImageBehavior = false;
             this.lvDepartment.View = System.Windows.Forms.View.Details;
@@ -155,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 529);
+            this.ClientSize = new System.Drawing.Size(933, 529);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lvDepartment);
             this.Controls.Add(this.tbShopIdDep);
@@ -170,6 +173,7 @@
             this.Text = "CreateDepartment";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateDepartment_FormClosing);
             this.Load += new System.EventHandler(this.CreateDepartment_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CreateDepartment_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

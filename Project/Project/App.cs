@@ -76,5 +76,15 @@ namespace Project
         {
 
         }
+
+        private void managerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void App_KeyDown(object sender, KeyEventArgs e)
+        {
+          
+        }
     }
 }

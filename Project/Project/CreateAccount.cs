@@ -197,5 +197,16 @@ namespace Project
         {
             toolStripStatusLabel1.Text = "";
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void logInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LogIn login = new LogIn();
+            login.Show();
+        }
     }
 }

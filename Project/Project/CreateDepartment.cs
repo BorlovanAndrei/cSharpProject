@@ -73,5 +73,50 @@ namespace Project
                 }
             }
         }
+
+        private void CreateDepartment_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void tbDepartmentName_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.Control && e.KeyCode.ToString() == "X")
+            //{
+            //    //MessageBox.Show("yu pressed that");
+            //    string mes = tbDepartmentName.Text;
+            //    tbDepartmentName.Text = "";
+            //    if (e.Control && e.KeyCode.ToString() == "V")
+            //    {
+            //        tbDepartmentName.Text = mes;
+            //    }
+            //}
+           // string mes = tbDepartmentName.Text;
+            if (e.Alt)
+            {
+                //MessageBox.Show("asda");
+                
+                tbDepartmentName.Text = "";
+                
+            }
+            
+
+        }
+
+        private void tbDepartmentId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Alt)
+            {
+                tbDepartmentId.Text = "";
+            }
+        }
+
+        private void tbShopIdDep_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Alt)
+            {
+                tbShopIdDep.Text = "";
+            }
+        }
     }
 }
