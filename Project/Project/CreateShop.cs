@@ -42,6 +42,38 @@ namespace Project
         //    }
         //}
 
+
+        private void tbShopName_Validating(object sender, CancelEventArgs e)
+        {
+            //if(tbShopName.Text.Length == 0)
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError(tbShopName, "Required");
+            //}
+            if(tbShopName.Text.Length < 3)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(tbShopName, "Name too short.");
+            }
+        }
+        private void tbShopName_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(tbShopName, null);
+        }
+
+        private void tbPhoneNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbPhoneNumber.Text.Length != 10)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(tbPhoneNumber, "The phone number should have 10 characters");
+            }
+        }
+        private void tbPhoneNumber_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError (tbPhoneNumber, null);
+        }
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -59,6 +91,12 @@ namespace Project
             //int shopid = int.Parse(tbShopId.Text);
             //string location = tbLocation.Text;
             //string phnumber = tbPhoneNumber.Text;
+
+            if (!ValidateChildren())
+            {
+                MessageBox.Show("The form contains errors!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             var shop = new Shop(ShopName,ShopId ,location, phoneNo);
             _shop.Add(shop);
@@ -80,6 +118,11 @@ namespace Project
         private void dgvShop_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void tbShopName_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

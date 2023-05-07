@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Classes
 {
-    internal class Department
+    public class Department
     {
         public string departmentName { get; set; }
         public int departmentId { get; set; }

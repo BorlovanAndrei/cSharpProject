@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,14 +38,11 @@
             this.tbShopId = new System.Windows.Forms.TextBox();
             this.tbLocation = new System.Windows.Forms.TextBox();
             this.tbPhoneNumber = new System.Windows.Forms.TextBox();
-            this.lvShop = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.dgvShop = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvShop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -102,6 +100,9 @@
             this.tbShopName.Name = "tbShopName";
             this.tbShopName.Size = new System.Drawing.Size(191, 22);
             this.tbShopName.TabIndex = 5;
+            this.tbShopName.TextChanged += new System.EventHandler(this.tbShopName_TextChanged);
+            this.tbShopName.Validating += new System.ComponentModel.CancelEventHandler(this.tbShopName_Validating);
+            this.tbShopName.Validated += new System.EventHandler(this.tbShopName_Validated);
             // 
             // tbShopId
             // 
@@ -123,41 +124,8 @@
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(191, 22);
             this.tbPhoneNumber.TabIndex = 8;
-            // 
-            // lvShop
-            // 
-            this.lvShop.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.lvShop.HideSelection = false;
-            this.lvShop.Location = new System.Drawing.Point(1023, 35);
-            this.lvShop.Name = "lvShop";
-            this.lvShop.Size = new System.Drawing.Size(446, 223);
-            this.lvShop.TabIndex = 9;
-            this.lvShop.UseCompatibleStateImageBehavior = false;
-            this.lvShop.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Shop Name";
-            this.columnHeader1.Width = 90;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Shop Id";
-            this.columnHeader2.Width = 85;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Location";
-            this.columnHeader3.Width = 87;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Phone Number";
-            this.columnHeader4.Width = 139;
+            this.tbPhoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbPhoneNumber_Validating);
+            this.tbPhoneNumber.Validated += new System.EventHandler(this.tbPhoneNumber_Validated);
             // 
             // button1
             // 
@@ -177,18 +145,21 @@
             this.dgvShop.Name = "dgvShop";
             this.dgvShop.RowHeadersWidth = 51;
             this.dgvShop.RowTemplate.Height = 24;
-            this.dgvShop.Size = new System.Drawing.Size(424, 385);
+            this.dgvShop.Size = new System.Drawing.Size(554, 385);
             this.dgvShop.TabIndex = 11;
             this.dgvShop.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShop_CellContentClick);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // CreateShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 611);
+            this.ClientSize = new System.Drawing.Size(1020, 611);
             this.Controls.Add(this.dgvShop);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.lvShop);
             this.Controls.Add(this.tbPhoneNumber);
             this.Controls.Add(this.tbLocation);
             this.Controls.Add(this.tbShopId);
@@ -198,10 +169,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Load += new System.EventHandler(this.CreateShop_Load);
             this.Name = "CreateShop";
             this.Text = "CreateShop";
+            this.Load += new System.EventHandler(this.CreateShop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvShop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,12 +195,8 @@
         private System.Windows.Forms.TextBox tbShopId;
         private System.Windows.Forms.TextBox tbLocation;
         private System.Windows.Forms.TextBox tbPhoneNumber;
-        private System.Windows.Forms.ListView lvShop;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvShop;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -59,5 +59,10 @@ namespace Project
                 MessageBox.Show("Please enter username and password");
             }
         }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

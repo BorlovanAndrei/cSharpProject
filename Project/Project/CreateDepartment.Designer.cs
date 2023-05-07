@@ -123,6 +123,7 @@
             this.lvDepartment.TabIndex = 9;
             this.lvDepartment.UseCompatibleStateImageBehavior = false;
             this.lvDepartment.View = System.Windows.Forms.View.Details;
+            this.lvDepartment.SelectedIndexChanged += new System.EventHandler(this.lvDepartment_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -167,6 +168,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CreateDepartment";
             this.Text = "CreateDepartment";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateDepartment_FormClosing);
             this.Load += new System.EventHandler(this.CreateDepartment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
