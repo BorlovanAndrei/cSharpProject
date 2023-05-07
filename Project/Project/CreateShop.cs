@@ -124,5 +124,16 @@ namespace Project
         {
            
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(dgvShop.SelectedRows.Count == 0) {
+                MessageBox.Show("please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var selectedRow = dgvShop.SelectedRows[0];
+            var shop = (Shop)selectedRow.DataBoundItem;
+            _shop.Remove(shop);
+        }
     }
 }

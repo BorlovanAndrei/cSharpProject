@@ -41,6 +41,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dgvShop = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -145,7 +146,7 @@
             this.dgvShop.Name = "dgvShop";
             this.dgvShop.RowHeadersWidth = 51;
             this.dgvShop.RowTemplate.Height = 24;
-            this.dgvShop.Size = new System.Drawing.Size(554, 385);
+            this.dgvShop.Size = new System.Drawing.Size(554, 336);
             this.dgvShop.TabIndex = 11;
             this.dgvShop.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShop_CellContentClick);
             // 
@@ -153,11 +154,23 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button2.Location = new System.Drawing.Point(454, 511);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(163, 40);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Delete shop";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // CreateShop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 611);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dgvShop);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbPhoneNumber);
@@ -198,5 +211,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvShop;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button2;
     }
 }

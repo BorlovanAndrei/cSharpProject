@@ -48,7 +48,15 @@ namespace Project
 
         private void lvDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(lvDepartment.SelectedItems.Count > 0)
+            {
 
+                button2.Enabled = true;
+            }
+            else
+            {
+                button2.Enabled = false;
+            }
         }
 
         private void CreateDepartment_FormClosing(object sender, FormClosingEventArgs e)
@@ -117,6 +125,45 @@ namespace Project
             {
                 tbShopIdDep.Text = "";
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(lvDepartment.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = lvDepartment.SelectedItems[0];
+                //lvDepartment.Items.Remove(selectedItem);
+                int index = lvDepartment.Items.IndexOf(selectedItem);
+                if(index >=0 && index < _department.Count)
+                {
+                    _department.RemoveAt(index);
+                    lvDepartment.Items.Remove(selectedItem);
+                }
+                
+            }
+        }
+
+        private void update()
+        {
+            lvDepartment.SelectedItems[0].SubItems[0].Text = tbDepartmentName.Text;
+            lvDepartment.SelectedItems[0].SubItems[1].Text = tbDepartmentId.Text;
+            lvDepartment.SelectedItems[0].SubItems[2].Text = tbShopIdDep.Text;
+
+            tbDepartmentName.Text = "";
+            tbDepartmentId.Text = "";
+            tbShopIdDep.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            update();
+        }
+
+        private void lvDepartment_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbDepartmentName.Text = lvDepartment.SelectedItems[0].SubItems[0].Text;
+            tbDepartmentId.Text = lvDepartment.SelectedItems[0].SubItems[1].Text;
+            tbShopIdDep.Text = lvDepartment.SelectedItems[0].SubItems[2].Text;
         }
     }
 }

@@ -33,6 +33,23 @@ namespace Project
                 lvSale.Items.Add(listViewItem);
             }
         }
+        private void lvSale_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lvSale.SelectedItems.Count > 0)
+            {
+                button2.Enabled= true;
+                //tbSaleId.Text = lvSale.SelectedItems[0].SubItems[0].Text;
+                //tbItemName.Text = lvSale.SelectedItems[0].SubItems[1].Text;
+                //tbNoItems.Text = lvSale.SelectedItems[0].SubItems[2].Text;
+                //tbPrice.Text = lvSale.SelectedItems[0].SubItems[3].Text;
+                //tbShopIdSale.Text = lvSale.SelectedItems[0].SubItems[4].Text;
+            }
+            else
+            {
+                button2.Enabled= false;
+            }
+        }
+
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -65,5 +82,52 @@ namespace Project
             _sale.Add(sale);
             displaySale();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(lvSale.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = lvSale.SelectedItems[0];
+                int index = lvSale.Items.IndexOf(selectedItem);
+                if(index >= 0 && index < _sale.Count)
+                {
+                    _sale.RemoveAt(index);
+                    lvSale.Items.Remove(selectedItem);
+                }
+            }
+        }
+        private void update()
+        {
+            lvSale.SelectedItems[0].SubItems[0].Text = tbSaleId.Text;
+            lvSale.SelectedItems[0].SubItems[1].Text = tbItemName.Text;
+            lvSale.SelectedItems[0].SubItems[2].Text = tbNoItems.Text;
+            lvSale.SelectedItems[0].SubItems[3].Text = tbPrice.Text;
+            lvSale.SelectedItems[0].SubItems[4].Text = tbShopIdSale.Text;
+
+            tbSaleId.Text = "";
+            tbItemName.Text = "";
+            tbNoItems.Text = "";
+            tbPrice.Text = "";
+            tbShopIdSale.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            update();
+
+        }
+
+        private void lvSale_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbSaleId.Text = lvSale.SelectedItems[0].SubItems[0].Text;
+            tbItemName.Text = lvSale.SelectedItems[0].SubItems[1].Text;
+            tbNoItems.Text = lvSale.SelectedItems[0].SubItems[2].Text;
+            tbPrice.Text = lvSale.SelectedItems[0].SubItems[3].Text;
+            tbShopIdSale.Text = lvSale.SelectedItems[0].SubItems[4].Text;
+        }
     }
+
+
+
 }

@@ -105,7 +105,14 @@ namespace Project
 
         private void lvManager_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(lvManager.SelectedItems.Count > 0)
+            {
+                button2.Enabled= true;
+            }
+            else
+            {
+                button2.Enabled= false;
+            }
         }
 
         private void tbFirstName_TextChanged(object sender, EventArgs e)
@@ -207,6 +214,62 @@ namespace Project
         {
             LogIn login = new LogIn();
             login.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(lvManager.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = lvManager.SelectedItems[0];
+                int index = lvManager.Items.IndexOf(selectedItem);
+                if(index >=0 && index < _manager.Count)
+                {
+                    _manager.RemoveAt(index);
+                    lvManager.Items.Remove(selectedItem);
+                }
+            }
+        }
+
+        private void update()
+        {
+            lvManager.SelectedItems[0].SubItems[0].Text = tbFirstName.Text;
+            lvManager.SelectedItems[0].SubItems[1].Text = tbLastName.Text;
+            lvManager.SelectedItems[0].SubItems[2].Text = tbEmail.Text;
+            lvManager.SelectedItems[0].SubItems[3].Text = tbPhone.Text;
+            lvManager.SelectedItems[0].SubItems[4].Text = tbShopId.Text;
+            lvManager.SelectedItems[0].SubItems[5].Text = tbUsername.Text;
+            lvManager.SelectedItems[0].SubItems[6].Text = tbPassword.Text;
+
+            tbFirstName.Text = "";
+            tbLastName.Text = "";
+            tbEmail.Text = "";
+            tbPhone.Text = "";
+            tbShopId.Text = "";
+            tbUsername.Text = "";
+            tbPassword.Text = "";
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            update();
+        }
+
+        private void lvManager_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lvManager_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbFirstName.Text =  lvManager.SelectedItems[0].SubItems[0].Text;
+            tbLastName.Text  = lvManager.SelectedItems[0].SubItems[1].Text;
+            tbEmail.Text =  lvManager.SelectedItems[0].SubItems[2].Text;
+            tbPhone.Text = lvManager.SelectedItems[0].SubItems[3].Text;
+            tbShopId.Text =  lvManager.SelectedItems[0].SubItems[4].Text;
+            tbUsername.Text  = lvManager.SelectedItems[0].SubItems[5].Text;
+            tbPassword.Text  = lvManager.SelectedItems[0].SubItems[6].Text;
+
         }
     }
 }
