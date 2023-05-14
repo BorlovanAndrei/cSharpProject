@@ -16,6 +16,7 @@ namespace Project
 {
     public partial class CreateAccount : Form
     {
+        
         private readonly List<Manager> _manager;
         private string connectionStringCreateAcc = "Data source=database.db";
         
@@ -43,43 +44,74 @@ namespace Project
                 listViewItem.SubItems.Add($"{manager.shopId}");
                 listViewItem.SubItems.Add(manager.username);
                 listViewItem.SubItems.Add(manager.password);
+
+                listViewItem.Tag= manager;
+
                 lvManager.Items.Add(listViewItem);
             }
         }
 
-        private void AddManager(Manager manager)
+        private void LoadManager()
         {
-            string query = "INSERT INTO createaccount(FirstName, LastName, Email, PhoneNumber, ShopId, Username, Password) VALUES " +
-                "('" + manager.firstName + "', '" + manager.lastName + "', '" + manager.email + "', '" +
-                manager.phone + "', '" + manager.shopId + "', '" + manager.username + "', '" + manager.password + "'); SELECT last_insert_rowid()";
+            string query = "SELECT * FROM createaccount";
             using (SQLiteConnection connection = new SQLiteConnection(connectionStringCreateAcc))
             {
                 SQLiteCommand command = new SQLiteCommand(query, connection);
                 connection.Open();
 
-                long id = (long)command.ExecuteScalar();
-                manager.managerId = id;
-                _manager.Add(manager);
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        long id = (long)reader["Id"];
+                        string firstName = (string)reader["FirstName"];
+                        string lastName = (string)reader["LastName"];
+                        string email = (string)reader["Email"];
+                        string phoneNumber = (string)reader["PhoneNumber"];
+                        long shopId = (long)reader["ShopId"];
+                        string username = (string)reader["Username"];
+                        string password = (string)reader["Password"];
+                        Manager manager = new Manager(id, firstName, lastName, email, phoneNumber, shopId, username,password);
+                        _manager.Add(manager);
+                    }
+                }
             }
-
-
-
-            //string query = "INSERT INTO createaccount (FirstName, LastName, Email, PhoneNumber, ShopId, Username, Password) " +
-            //               "VALUES (@firstName, @lastName, @email, @phoneNumber, @shopId, @username, @password)";
+        }
+        private void AddManager(Manager manager)
+        {
+            //string query = "INSERT INTO createaccount(FirstName, LastName, Email, PhoneNumber, ShopId, Username, Password) VALUES " +
+            //    "('" + manager.firstName + "', '" + manager.lastName + "', '" + manager.email + "', '" +
+            //    manager.phone + "', '" + manager.shopId + "', '" + manager.username + "', '" + manager.password + "'); SELECT last_insert_rowid()";
             //using (SQLiteConnection connection = new SQLiteConnection(connectionStringCreateAcc))
             //{
             //    SQLiteCommand command = new SQLiteCommand(query, connection);
-            //    command.Parameters.AddWithValue("@firstName", manager.firstName);
-            //    command.Parameters.AddWithValue("@lastName", manager.lastName);
-            //    command.Parameters.AddWithValue("@email", manager.email);
-            //    command.Parameters.AddWithValue("@phoneNumber", manager.phone);
-            //    command.Parameters.AddWithValue("@shopId", manager.shopId);
-            //    command.Parameters.AddWithValue("@username", manager.username);
-            //    command.Parameters.AddWithValue("@password", manager.password);
             //    connection.Open();
-            //    command.ExecuteNonQuery();
-            //    connection.Close();
+
+            //    long id = (long)command.ExecuteScalar();
+            //    manager.managerId = id;
+            //    _manager.Add(manager);
             //}
+
+
+
+            string query = "INSERT INTO createaccount (FirstName, LastName, Email, PhoneNumber, ShopId, Username, Password) " +
+                           "VALUES (@firstName, @lastName, @email, @phoneNumber, @shopId, @username, @password); SELECT last_insert_rowid()";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionStringCreateAcc))
+            {
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@firstName", manager.firstName);
+                command.Parameters.AddWithValue("@lastName", manager.lastName);
+                command.Parameters.AddWithValue("@email", manager.email);
+                command.Parameters.AddWithValue("@phoneNumber", manager.phone);
+                command.Parameters.AddWithValue("@shopId", manager.shopId);
+                command.Parameters.AddWithValue("@username", manager.username);
+                command.Parameters.AddWithValue("@password", manager.password);
+                connection.Open();
+                
+                long id = (long)command.ExecuteScalar();
+                manager.managerId= id;
+                _manager.Add(manager);
+            }
 
         }
         
@@ -269,6 +301,17 @@ namespace Project
             tbShopId.Text =  lvManager.SelectedItems[0].SubItems[4].Text;
             tbUsername.Text  = lvManager.SelectedItems[0].SubItems[5].Text;
             tbPassword.Text  = lvManager.SelectedItems[0].SubItems[6].Text;
+
+        }
+
+        private void CreateAccount_Load(object sender, EventArgs e)
+        {
+            LoadManager();
+            displayManager();
+        }
+
+        private void tbUsername_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

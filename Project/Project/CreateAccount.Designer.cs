@@ -274,6 +274,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(199, 22);
             this.tbUsername.TabIndex = 16;
+            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
             this.tbUsername.MouseLeave += new System.EventHandler(this.tbUsername_MouseLeave);
             this.tbUsername.MouseHover += new System.EventHandler(this.tbUsername_MouseHover);
             // 
@@ -314,14 +315,14 @@
             // logInToolStripMenuItem
             // 
             this.logInToolStripMenuItem.Name = "logInToolStripMenuItem";
-            this.logInToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.logInToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
             this.logInToolStripMenuItem.Text = "Log In";
             this.logInToolStripMenuItem.Click += new System.EventHandler(this.logInToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -376,6 +377,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CreateAccount";
             this.Text = "CreateAccount";
+            this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);

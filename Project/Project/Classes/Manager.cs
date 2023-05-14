@@ -8,8 +8,10 @@ namespace Project.Classes
 {
     internal class Manager
     {
+      
+
         public long managerId { get; set; }
-        public int shopId { get; set; }
+        public long shopId { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string email { get; set; }
@@ -19,7 +21,9 @@ namespace Project.Classes
 
         public Shop shop { get; set; }
 
-        public Manager(string firstName, string lastName, string email, string phone, int shopId, string username, string pass)
+        
+
+        public Manager(string firstName, string lastName, string email, string phone, long shopId, string username, string pass)
         {
             this.firstName = firstName; 
             this.lastName = lastName;
@@ -40,7 +44,7 @@ namespace Project.Classes
             this.phone = "No phone number for manager ";
         }
 
-        public Manager(int managerId, int shopId, string firstName, string lastName, string email, string phone, Shop shop)
+        public Manager(long managerId, long shopId, string firstName, string lastName, string email, string phone, Shop shop)
         {
             this.managerId = managerId;
             this.shopId = shopId;
@@ -51,5 +55,16 @@ namespace Project.Classes
             this.shop = shop;
         }
 
+        public Manager(long managerId, string firstName, string lastName, string email, string phoneNumber, long shopId, string username, string password)
+        {
+            this.managerId = managerId;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.phone = phoneNumber;
+            this.shopId = shopId;
+            this.username = username;
+            this.password = password;
+        }
     }
 }
