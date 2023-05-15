@@ -1,4 +1,5 @@
 ﻿using Project.Classes;
+using Project.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,8 @@ namespace Project
     {
 
         private readonly BindingList<Shop> _shop;
+
+
         public string ShopName { get; set; }
         public int ShopId { get; set; }
         public string location { get; set; }

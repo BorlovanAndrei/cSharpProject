@@ -165,5 +165,10 @@ namespace Project
             tbDepartmentId.Text = lvDepartment.SelectedItems[0].SubItems[1].Text;
             tbShopIdDep.Text = lvDepartment.SelectedItems[0].SubItems[2].Text;
         }
+
+        private void tbDepartmentName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

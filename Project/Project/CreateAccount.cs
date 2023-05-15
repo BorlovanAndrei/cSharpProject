@@ -16,10 +16,12 @@ namespace Project
 {
     public partial class CreateAccount : Form
     {
-        
+        #region Attributes
+
         private readonly List<Manager> _manager;
         private string connectionStringCreateAcc = "Data source=database.db";
-        
+        #endregion
+
         public CreateAccount()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace Project
 
 
 
-
+        #region Methods
         public void displayManager()
         {
             lvManager.Items.Clear();
@@ -114,8 +116,45 @@ namespace Project
             }
 
         }
-        
+        private void UpdateManager(Manager manager)
+        {
+            string query = "UPDATE createaccount SET FirstName=@firstName, LastName=@lastName, Email=@email, PhoneNumber=@phoneNumber, ShopId=@shopId, Username=@username, Password=@password WHERE Id=@id";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionStringCreateAcc))
+            {
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@id", manager.managerId);
+                command.Parameters.AddWithValue("@firstName", manager.firstName);
+                command.Parameters.AddWithValue("@lastName", manager.lastName);
+                command.Parameters.AddWithValue("@email", manager.email);
+                command.Parameters.AddWithValue("@phoneNumber", manager.phone);
+                command.Parameters.AddWithValue("@shopId", manager.shopId);
+                command.Parameters.AddWithValue("@username", manager.username);
+                command.Parameters.AddWithValue("@password", manager.password);
 
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+        
+        private void DeleteManager(Manager manager)
+        {
+            string query = "DELETE FROM createaccount WHERE Id=@id";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionStringCreateAcc))
+            {
+                SQLiteCommand command= new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@id", manager.managerId);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+
+                _manager.Remove(manager);
+            }
+        }
+
+        #endregion
+
+
+        #region Events
         private void button1_Click(object sender, EventArgs e)
         {
             //Manager manager = new Manager();
@@ -250,15 +289,27 @@ namespace Project
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(lvManager.SelectedItems.Count > 0)
+            //if(lvManager.SelectedItems.Count > 0)
+            //{
+            //    ListViewItem selectedItem = lvManager.SelectedItems[0];
+            //    int index = lvManager.Items.IndexOf(selectedItem);
+            //    if(index >=0 && index < _manager.Count)
+            //    {
+            //        _manager.RemoveAt(index);
+            //        lvManager.Items.Remove(selectedItem);
+            //    }
+            //}
+
+            if(lvManager.SelectedItems.Count == 0)
             {
-                ListViewItem selectedItem = lvManager.SelectedItems[0];
-                int index = lvManager.Items.IndexOf(selectedItem);
-                if(index >=0 && index < _manager.Count)
-                {
-                    _manager.RemoveAt(index);
-                    lvManager.Items.Remove(selectedItem);
-                }
+                MessageBox.Show("Please choose a participant!");
+            }else if(MessageBox.Show("Are you sure?", "Delete Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                ListViewItem selected = lvManager.SelectedItems[0];
+                Manager manager = (Manager) selected.Tag;
+
+                DeleteManager(manager);
+                displayManager();
             }
         }
 
@@ -284,7 +335,18 @@ namespace Project
 
         private void button3_Click(object sender, EventArgs e)
         {
-            update();
+            //update();
+            Manager selectedManager = (Manager)lvManager.SelectedItems[0].Tag;
+            selectedManager.firstName = tbFirstName.Text;
+            selectedManager.lastName = tbLastName.Text;
+            selectedManager.email = tbEmail.Text;
+            selectedManager.phone = tbPhone.Text;
+            selectedManager.shopId = int.Parse(tbShopId.Text);
+            selectedManager.username = tbUsername.Text;
+            selectedManager.password = tbPassword.Text;
+
+            UpdateManager(selectedManager);
+            displayManager();
         }
 
         private void lvManager_Click(object sender, EventArgs e)
@@ -294,13 +356,13 @@ namespace Project
 
         private void lvManager_MouseClick(object sender, MouseEventArgs e)
         {
-            tbFirstName.Text =  lvManager.SelectedItems[0].SubItems[0].Text;
-            tbLastName.Text  = lvManager.SelectedItems[0].SubItems[1].Text;
-            tbEmail.Text =  lvManager.SelectedItems[0].SubItems[2].Text;
-            tbPhone.Text = lvManager.SelectedItems[0].SubItems[3].Text;
-            tbShopId.Text =  lvManager.SelectedItems[0].SubItems[4].Text;
-            tbUsername.Text  = lvManager.SelectedItems[0].SubItems[5].Text;
-            tbPassword.Text  = lvManager.SelectedItems[0].SubItems[6].Text;
+            //tbFirstName.Text =  lvManager.SelectedItems[0].SubItems[0].Text;
+            //tbLastName.Text  = lvManager.SelectedItems[0].SubItems[1].Text;
+            //tbEmail.Text =  lvManager.SelectedItems[0].SubItems[2].Text;
+            //tbPhone.Text = lvManager.SelectedItems[0].SubItems[3].Text;
+            //tbShopId.Text =  lvManager.SelectedItems[0].SubItems[4].Text;
+            //tbUsername.Text  = lvManager.SelectedItems[0].SubItems[5].Text;
+            //tbPassword.Text  = lvManager.SelectedItems[0].SubItems[6].Text;
 
         }
 
@@ -314,5 +376,6 @@ namespace Project
         {
 
         }
+        #endregion
     }
 }

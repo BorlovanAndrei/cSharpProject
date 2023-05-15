@@ -24,7 +24,9 @@ namespace Project
 
         private void shopToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            ViewShop view = new ViewShop();
+            view.MdiParent= this;
+            view.Show();
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)

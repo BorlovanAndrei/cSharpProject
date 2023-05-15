@@ -97,6 +97,7 @@
             this.tbDepartmentName.Name = "tbDepartmentName";
             this.tbDepartmentName.Size = new System.Drawing.Size(207, 22);
             this.tbDepartmentName.TabIndex = 6;
+            this.tbDepartmentName.TextChanged += new System.EventHandler(this.tbDepartmentName_TextChanged);
             this.tbDepartmentName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbDepartmentName_KeyDown);
             // 
             // tbDepartmentId
