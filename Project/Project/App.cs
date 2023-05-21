@@ -25,21 +25,21 @@ namespace Project
         private void shopToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ViewShop view = new ViewShop();
-            view.MdiParent= this;
+           // view.MdiParent= this;
             view.Show();
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LogIn login = new LogIn();
-            login.MdiParent= this;
+           //login.MdiParent= this;
             login.Show();
         }
 
         private void createAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateAccount newAccount = new CreateAccount();
-            newAccount.MdiParent = this;
+           // newAccount.MdiParent = this;
             newAccount.Show();
         }
 
@@ -56,21 +56,21 @@ namespace Project
         private void shopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateShop newShop = new CreateShop();
-            newShop.MdiParent = this;
+            //newShop.MdiParent = this;
             newShop.Show();
         }
 
         private void departmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateDepartment newDepartment = new CreateDepartment();
-            newDepartment.MdiParent = this;
+            //newDepartment.MdiParent = this;
             newDepartment.Show();
         }
 
         private void saleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateSale newSale = new CreateSale();
-            newSale.MdiParent = this;
+            //newSale.MdiParent = this;
             newSale.Show();
         }
 
@@ -87,6 +87,18 @@ namespace Project
         private void App_KeyDown(object sender, KeyEventArgs e)
         {
           
+        }
+
+        private void managerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ViewShop view = new ViewShop();
+            //view.MdiParent = this;
+            view.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

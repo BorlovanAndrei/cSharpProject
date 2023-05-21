@@ -9,11 +9,19 @@ namespace Project.Classes
     public class Department
     {
         public string departmentName { get; set; }
-        public int departmentId { get; set; }
+        public long departmentId { get; set; }
         public int noOfEmployees { get; set; }
-        public int shopId { get; set; }
+        public long shopId { get; set; }
+        public long managerId { get; set; }
 
-        public Department(string departmentName, int departmentId, int shopId)
+        public Department(long managerId, string name, long departmentId, long shopId)
+        {
+            this.managerId = managerId;
+            this.departmentName= name;
+            this.departmentId = departmentId;
+            this.shopId= shopId;
+        }
+        public Department(string departmentName, long departmentId, long shopId)
         {
             this.departmentName = departmentName;
          this.departmentId = departmentId;
@@ -26,7 +34,7 @@ namespace Project.Classes
             this.departmentName = "No name for department";
         }
 
-        public Department(string departmentName, int departmentId, int noEmployees, int shopId)
+        public Department(string departmentName, long departmentId, int noEmployees, long shopId)
         {
             this.departmentName = departmentName;
             this.departmentId = departmentId;

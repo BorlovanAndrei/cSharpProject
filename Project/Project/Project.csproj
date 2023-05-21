@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Department.cs" />
+    <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\Sale.cs" />
     <Compile Include="Classes\Shop.cs" />

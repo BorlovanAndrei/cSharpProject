@@ -72,22 +72,33 @@ namespace Project.ViewModel
         }
         #endregion
 
-        public BindingList<Shop> Shops { get; set; }
+        //public BindingList<Shop> Shops { get; set; }
+        public BindingList <Employee> Employees { get; set; }
 
         #endregion
 
         public MainFormViewModel()
         {
-            Shops = new BindingList<Shop>();
+            //Shops = new BindingList<Shop>();
+            Employees= new BindingList<Employee>();
         }
 
         #region Methods
-        public void AddShop()
+        //public void AddShop()
+        //{
+        //    Shops.Add(new Shop(Name, Id, Location, Phone));
+        //    Name = Location = Phone = string.Empty;
+        //    Id = 0;
+        //}
+
+        public void AddEmployee()
         {
-            Shops.Add(new Shop(Name, Id, Location, Phone));
-            Name = Location = Phone = string.Empty;
+            Employees.Add(new Employee(Id,Name,Location, Phone));
+            Name= Location = Phone = string.Empty;
             Id = 0;
         }
+
+
         #endregion
 
 

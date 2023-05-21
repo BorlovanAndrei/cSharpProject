@@ -18,10 +18,15 @@ namespace Project.Classes
         public string phone { get; set; }
         public string username { get; set; }
         public string password { get; set; }
-
+        public string location { get; set; }
         public Shop shop { get; set; }
 
-        
+        public Manager(string name, int id, string location, string phone) { 
+            this.lastName= name;
+            this.managerId= id;
+            this.location = location;
+            this.phone = phone;
+        }
 
         public Manager(string firstName, string lastName, string email, string phone, long shopId, string username, string pass)
         {

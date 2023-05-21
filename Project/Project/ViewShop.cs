@@ -25,7 +25,8 @@ namespace Project
 
         private void ViewShop_Load(object sender, EventArgs e)
         {
-            dgvViewShop.DataSource = _viewModel.Shops;
+            //dgvViewShop.DataSource = _viewModel.Shops;
+            dgvViewShop.DataSource = _viewModel.Employees;
 
             textBox1.DataBindings.Add("Text", _viewModel, nameof(MainFormViewModel.Name));
             textBox2.DataBindings.Add("Text", _viewModel, "Id", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -35,10 +36,16 @@ namespace Project
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            _viewModel.AddShop();
+            //_viewModel.AddShop();
+            _viewModel.AddEmployee();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvViewShop_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
