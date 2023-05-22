@@ -44,15 +44,20 @@ namespace Project
         {
             if (tbUsername.Text != string.Empty || tbPassword.Text != string.Empty)
             {
-                if(tbUsername.Text == "Admin" && tbPassword.Text == "Password")
-                {
-                    LoginMenu menu  = new LoginMenu();
-                    menu.Show();
-                }
-                else
-                {
-                    throw new Exception("The username or password is incorrect!");
-                }
+                //if(tbUsername.Text == "Admin" && tbPassword.Text == "Password")
+                //{
+                //    //LoginMenu menu  = new LoginMenu();
+                //    //menu.Show();
+
+                //    App app = new App();
+                //    app.Show();
+                //}
+                //else
+                //{
+                //    throw new Exception("The username or password is incorrect!");
+                //}
+                App app = new App();
+                app.Show();
             }
             else
             {
