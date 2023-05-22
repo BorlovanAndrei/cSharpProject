@@ -48,6 +48,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -106,6 +108,7 @@
             this.tbSaleId.Size = new System.Drawing.Size(162, 22);
             this.tbSaleId.TabIndex = 5;
             this.tbSaleId.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbSaleId.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbSaleId_MouseDown);
             // 
             // tbNoItems
             // 
@@ -131,6 +134,7 @@
             // 
             // lvSale
             // 
+            this.lvSale.AllowDrop = true;
             this.lvSale.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -139,13 +143,15 @@
             this.columnHeader5});
             this.lvSale.HideSelection = false;
             this.lvSale.LabelEdit = true;
-            this.lvSale.Location = new System.Drawing.Point(446, 126);
+            this.lvSale.Location = new System.Drawing.Point(490, 126);
             this.lvSale.Name = "lvSale";
-            this.lvSale.Size = new System.Drawing.Size(375, 313);
+            this.lvSale.Size = new System.Drawing.Size(331, 313);
             this.lvSale.TabIndex = 9;
             this.lvSale.UseCompatibleStateImageBehavior = false;
             this.lvSale.View = System.Windows.Forms.View.Details;
             this.lvSale.SelectedIndexChanged += new System.EventHandler(this.lvSale_SelectedIndexChanged);
+            this.lvSale.DragDrop += new System.Windows.Forms.DragEventHandler(this.lvSale_DragDrop);
+            this.lvSale.DragEnter += new System.Windows.Forms.DragEventHandler(this.lvSale_DragEnter);
             this.lvSale.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvSale_MouseClick);
             // 
             // columnHeader1
@@ -183,7 +189,7 @@
             // 
             this.tbItemName.Location = new System.Drawing.Point(201, 174);
             this.tbItemName.Name = "tbItemName";
-            this.tbItemName.Size = new System.Drawing.Size(162, 22);
+            this.tbItemName.Size = new System.Drawing.Size(86, 22);
             this.tbItemName.TabIndex = 11;
             // 
             // button1
@@ -219,11 +225,35 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button4.Location = new System.Drawing.Point(294, 173);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(55, 23);
+            this.button4.TabIndex = 15;
+            this.button4.Text = "Cpy";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button5.Location = new System.Drawing.Point(355, 171);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(55, 25);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Pst";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // CreateSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 517);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -268,5 +298,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

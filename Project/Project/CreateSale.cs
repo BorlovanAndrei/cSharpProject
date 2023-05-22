@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -125,6 +126,52 @@ namespace Project
             tbNoItems.Text = lvSale.SelectedItems[0].SubItems[2].Text;
             tbPrice.Text = lvSale.SelectedItems[0].SubItems[3].Text;
             tbShopIdSale.Text = lvSale.SelectedItems[0].SubItems[4].Text;
+        }
+
+        private void tbSaleId_MouseDown(object sender, MouseEventArgs e)
+        {
+            //tbItemName.DoDragDrop(tbItemName, DragDropEffects.Copy);
+        }
+
+        private void lvSale_DragEnter(object sender, DragEventArgs e)
+        {
+            //richTextBox1.Text = "Allowed effects: " + e.AllowedEffect + "\r\nAvailable Formats:\r\n";
+            //foreach(string availableFormat in e.Data.GetFormats(true))
+            //{
+            //    richTextBox1.Text += "\t" + availableFormat + "\r\n";
+            //}
+
+            //if(e.Data.GetDataPresent(DataFormats.Text, true))
+            //{
+            //    if((e.AllowedEffect & DragDropEffects.Move) == DragDropEffects.Move) {
+            //        e.Effect = DragDropEffects.Move;
+            //    }
+            //    else
+            //    {
+            //        e.Effect= DragDropEffects.Copy;
+            //    }
+            //}
+        }
+
+        private void lvSale_DragDrop(object sender, DragEventArgs e)
+        {
+            //if (e.Data.GetDataPresent(DataFormats.Text, true))
+            //{
+            //    listBox1.Items.Add(e.Data.GetData(DataFormats.Text));
+            //}
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(tbItemName.Text);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText())
+            {
+                tbItemName.Text = Clipboard.GetText();
+            }
         }
     }
 

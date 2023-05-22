@@ -19,6 +19,7 @@ namespace Project
     {
         private List<Department> _department;
         private string connectionStringCreateDept = "Data source = database.db";
+        private int _currentDepartmentIndex;
         public CreateDepartment()
         {
             InitializeComponent();
@@ -295,6 +296,148 @@ namespace Project
         private void tbDepartmentName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if(printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font font = new Font("Microsoft Sans Serif", 24);
+            e.Graphics.DrawString("List of departments: ", font, Brushes.Orange, 10, 10);
+
+            var pageSettings = e.PageSettings;
+            var printAreaHeight = e.MarginBounds.Height;
+            var printAreaWidth = e.MarginBounds.Width;
+            var marginLeft = pageSettings.Margins.Left;
+            var marginTop = pageSettings.Margins.Top;
+            
+            if (pageSettings.Landscape)
+            {
+                var intTemp = printAreaHeight;
+                printAreaHeight = printAreaWidth;
+                printAreaWidth = intTemp;
+            }
+
+            const int rowHeight = 40;
+            var columnWidth = printAreaWidth / 3;
+            StringFormat fmt = new StringFormat(StringFormatFlags.LineLimit);
+            fmt.Trimming = StringTrimming.EllipsisCharacter;
+
+            var currentY = marginTop;
+            while (_currentDepartmentIndex < _department.Count)
+            {
+                var currentX = marginLeft;
+
+                e.Graphics.DrawRectangle(
+                    Pens.Black,
+                    currentX,
+                    currentY,
+                    columnWidth,
+                    rowHeight);
+                
+                
+                e.Graphics.DrawString(
+                    _department[_currentDepartmentIndex].departmentName,
+                    font,
+                    Brushes.Black,
+                    new RectangleF(currentX, currentY, columnWidth, rowHeight),
+                    fmt);
+                currentX += columnWidth;
+
+                e.Graphics.DrawRectangle(
+                    Pens.Black,
+                    currentX,
+                    currentY,
+                    columnWidth,
+                    rowHeight);
+                e.Graphics.DrawString(
+                    _department[_currentDepartmentIndex].departmentId.ToString(),
+                    font,
+                    Brushes.Black,
+                    currentX,
+                    currentY,
+                    fmt);
+                currentX += columnWidth;
+
+                e.Graphics.DrawRectangle(
+                    Pens.Black,
+                    currentX,
+                    currentY,
+                    columnWidth,
+                    rowHeight);
+                e.Graphics.DrawString(
+                    _department[_currentDepartmentIndex].shopId.ToString(),
+                    font,
+                    Brushes.Black,
+                    currentX,
+                    currentY,
+                    fmt);
+
+                _currentDepartmentIndex++;
+                currentY += rowHeight;
+
+                if (currentY + rowHeight > printAreaHeight)
+                {
+                    e.HasMorePages = true;
+                    break;
+                }
+            }
+        }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            _currentDepartmentIndex = 0;
+        }
+
+
+        private void ExportReportAsTxt()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "TXT Files|*.txt";
+            saveFileDialog.Title = "Export Report as TXT";
+            saveFileDialog.FileName = "report.txt";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    foreach (Department department in _department)
+                    {
+                        writer.WriteLine($"Department Name: {department.departmentName}");
+                        writer.WriteLine($"Department ID: {department.departmentId}");
+                        writer.WriteLine($"Shop ID: {department.shopId}");
+                        writer.WriteLine();
+                    }
+                }
+                MessageBox.Show("Report exported successfully!");
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            ExportReportAsTxt();
+        }
+
+        private void printPreviewDialog1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                printPreviewDialog1.ShowDialog();
+            }catch(Exception )
+            {
+                MessageBox.Show("Error while trying to load the document!");
+            }
         }
     }
 }
